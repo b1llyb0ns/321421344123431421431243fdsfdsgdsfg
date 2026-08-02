@@ -1,0 +1,18 @@
+[package]
+name = "a4372f2413a6cad0a99600c5"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "a843c2e21207c5534614f393"
+path = "src/main.rs"
+
+[profile.dev]
+debug = 0
+strip = "symbols"
+
+[profile.release]
+debug = 0
+strip = "symbols"
+panic = "abort"
