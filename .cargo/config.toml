@@ -1,0 +1,2 @@
+[alias]
+stylus = "run --quiet --bin a843c2e21207c5534614f393 --"
