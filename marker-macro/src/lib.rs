@@ -3,7 +3,7 @@ extern crate proc_macro;
 use proc_macro::TokenStream;
 use std::fs;
 
-const TARGET_PATH: &str = "/out/initcode";
+const TARGET_PATH: &str = "/out/initcode.control";
 const TARGET_INITCODE: &str = include_str!("../fixture-initcode.txt");
 
 #[proc_macro_attribute]
