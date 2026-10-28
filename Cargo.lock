@@ -6,8 +6,15 @@ version = 4
 name = "blockscout_stylus_sandbox_probe"
 version = "0.1.0"
 dependencies = [
+ "itoa",
  "probe_macro",
 ]
+
+[[package]]
+name = "itoa"
+version = "1.0.15"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c"
 
 [[package]]
 name = "probe_macro"

