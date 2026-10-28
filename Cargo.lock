@@ -3,5 +3,12 @@
 version = 4
 
 [[package]]
-name = "a4372f2413a6cad0a99600c5"
+name = "blockscout_stylus_sandbox_probe"
+version = "0.1.0"
+dependencies = [
+ "probe_macro",
+]
+
+[[package]]
+name = "probe_macro"
 version = "0.1.0"
